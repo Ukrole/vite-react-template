@@ -7,34 +7,34 @@ const links = [
     value: profile.email,
     href: `mailto:${profile.email}`,
     icon: "✉️",
-    color: "#818cf8",
+    color: "#6366f1",
   },
   {
     label: "GitHub",
     value: "github.com/zikangwen",
     href: profile.github,
     icon: "⌨️",
-    color: "#a78bfa",
+    color: "#7c3aed",
   },
   {
     label: "LinkedIn",
     value: "linkedin.com/in/zikangwen",
     href: profile.linkedin,
     icon: "💼",
-    color: "#38bdf8",
+    color: "#0284c7",
   },
   {
     label: "Google Scholar",
     value: "Scholar Profile",
     href: profile.googleScholar,
     icon: "📖",
-    color: "#4ade80",
+    color: "#16a34a",
   },
 ];
 
 export default function Contact() {
   return (
-    <section id="contact" style={{ padding: "6rem 0 4rem", position: "relative" }}>
+    <section id="contact" style={{ padding: "clamp(4rem, 8vw, 8rem) 0 clamp(3rem, 6vw, 5rem)", position: "relative" }}>
       {/* Top divider */}
       <div
         style={{
@@ -44,15 +44,15 @@ export default function Contact() {
           right: 0,
           height: 1,
           background:
-            "linear-gradient(to right, transparent, rgba(99,102,241,0.3), transparent)",
+            "linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent)",
         }}
       />
 
       <div
         style={{
-          maxWidth: "1100px",
+          maxWidth: "1120px",
           margin: "0 auto",
-          padding: "0 1.5rem",
+          padding: "0 clamp(1.25rem, 5vw, 2.5rem)",
           textAlign: "center",
         }}
       >
@@ -65,8 +65,8 @@ export default function Contact() {
         >
           <p
             style={{
-              fontSize: "0.75rem",
-              letterSpacing: "0.12em",
+              fontSize: "0.6875rem",
+              letterSpacing: "0.1em",
               color: "#6366f1",
               fontWeight: 600,
               marginBottom: "0.6rem",
@@ -77,11 +77,13 @@ export default function Contact() {
           </p>
           <h2
             style={{
-              fontSize: "clamp(1.7rem, 4vw, 2.5rem)",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
+              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
               fontWeight: 700,
-              color: "#e7edf8",
-              letterSpacing: "-0.02em",
-              marginBottom: "1.2rem",
+              color: "#1d1d1f",
+              letterSpacing: "-0.032em",
+              lineHeight: 1.08,
+              marginBottom: "1.25rem",
             }}
           >
             Let's Connect
@@ -90,9 +92,10 @@ export default function Contact() {
             style={{
               maxWidth: "520px",
               margin: "0 auto",
-              fontSize: "1rem",
-              color: "#64748b",
-              lineHeight: 1.75,
+              fontSize: "1.0625rem",
+              color: "#6e6e73",
+              lineHeight: 1.78,
+              letterSpacing: "-0.008em",
             }}
           >
             I'm always open to research collaborations, interesting projects,
@@ -124,8 +127,9 @@ export default function Contact() {
               style={{
                 padding: "1.75rem",
                 borderRadius: "0.875rem",
-                border: "1px solid rgba(30,45,74,0.8)",
-                background: "rgba(13,17,23,0.8)",
+                border: "1px solid rgba(0,0,0,0.1)",
+                background: "#ffffff",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
                 textDecoration: "none",
                 display: "flex",
                 flexDirection: "column",
@@ -141,7 +145,7 @@ export default function Contact() {
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "rgba(30,45,74,0.8)";
+                el.style.borderColor = "rgba(0,0,0,0.1)";
                 el.style.boxShadow = "none";
               }}
             >
@@ -149,20 +153,22 @@ export default function Contact() {
               <div>
                 <p
                   style={{
-                    fontSize: "0.78rem",
-                    color: "#475569",
+                    fontSize: "0.6875rem",
+                    color: "#6e6e73",
                     textTransform: "uppercase",
                     letterSpacing: "0.08em",
-                    marginBottom: "0.3rem",
+                    marginBottom: "0.35rem",
+                    fontWeight: 500,
                   }}
                 >
                   {link.label}
                 </p>
                 <p
                   style={{
-                    fontSize: "0.85rem",
+                    fontSize: "0.9375rem",
                     color: link.color,
                     fontWeight: 500,
+                    letterSpacing: "-0.008em",
                   }}
                 >
                   {link.value}
@@ -186,12 +192,13 @@ export default function Contact() {
               display: "inline-flex",
               alignItems: "center",
               gap: "0.6rem",
-              padding: "0.9rem 2.5rem",
-              borderRadius: "0.5rem",
+              padding: "0.9375rem 2.75rem",
+              borderRadius: "0.625rem",
               background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
               color: "#fff",
               fontWeight: 600,
-              fontSize: "0.95rem",
+              fontSize: "0.9375rem",
+              letterSpacing: "-0.008em",
               cursor: "pointer",
               transition: "opacity 0.2s, transform 0.2s",
               textDecoration: "none",

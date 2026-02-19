@@ -50,43 +50,64 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         background: scrolled
-          ? "rgba(8, 11, 20, 0.92)"
+          ? "rgba(255,255,255,0.85)"
           : "transparent",
         backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(30,45,74,0.6)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(0,0,0,0.07)" : "none",
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div
+        style={{
+          maxWidth: "1120px",
+          margin: "0 auto",
+          padding: "0 clamp(1.25rem, 5vw, 2.5rem)",
+          height: "3.75rem",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-lg font-bold tracking-tight"
-          style={{ background: "none", border: "none", cursor: "pointer" }}
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
+            fontSize: "1.125rem",
+            fontWeight: 700,
+            letterSpacing: "-0.02em",
+          }}
         >
           <span className="gradient-text">ZW</span>
         </button>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center" style={{ gap: "0.25rem" }}>
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.slice(1);
             return (
               <button
                 key={link.href}
                 onClick={() => handleClick(link.href)}
-                className="text-sm px-3 py-1.5 rounded-md transition-all duration-200"
                 style={{
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  color: isActive ? "#818cf8" : "#94a3b8",
+                  padding: "0.375rem 0.75rem",
+                  borderRadius: "0.375rem",
+                  fontSize: "0.875rem",
+                  letterSpacing: "-0.005em",
+                  transition: "color 0.2s",
+                  color: isActive ? "#6366f1" : "#1d1d1f",
                   fontWeight: isActive ? 500 : 400,
                 }}
                 onMouseEnter={(e) => {
-                  if (!isActive) (e.currentTarget as HTMLElement).style.color = "#e7edf8";
+                  if (!isActive) (e.currentTarget as HTMLElement).style.color = "#6366f1";
                 }}
                 onMouseLeave={(e) => {
-                  if (!isActive) (e.currentTarget as HTMLElement).style.color = "#94a3b8";
+                  if (!isActive) (e.currentTarget as HTMLElement).style.color = "#1d1d1f";
                 }}
               >
                 {link.label}
@@ -103,7 +124,7 @@ export default function Navbar() {
             background: "none",
             border: "none",
             cursor: "pointer",
-            color: "#94a3b8",
+            color: "#6e6e73",
           }}
           aria-label="menu"
         >
@@ -111,21 +132,21 @@ export default function Navbar() {
             <span
               className="block h-0.5 rounded transition-all duration-300 origin-center"
               style={{
-                background: "#94a3b8",
+                background: "#1d1d1f",
                 transform: menuOpen ? "rotate(45deg) translateY(6px)" : "none",
               }}
             />
             <span
               className="block h-0.5 rounded transition-all duration-300"
               style={{
-                background: "#94a3b8",
+                background: "#1d1d1f",
                 opacity: menuOpen ? 0 : 1,
               }}
             />
             <span
               className="block h-0.5 rounded transition-all duration-300 origin-center"
               style={{
-                background: "#94a3b8",
+                background: "#1d1d1f",
                 transform: menuOpen ? "rotate(-45deg) translateY(-6px)" : "none",
               }}
             />
@@ -142,21 +163,24 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
             style={{
-              background: "rgba(8, 11, 20, 0.97)",
-              borderBottom: "1px solid rgba(30,45,74,0.6)",
+              background: "rgba(255,255,255,0.98)",
+              borderBottom: "1px solid rgba(0,0,0,0.07)",
             }}
           >
-            <div className="px-6 pb-4 flex flex-col gap-1">
+            <div style={{ padding: "0 clamp(1.25rem, 5vw, 2.5rem)", paddingBottom: "1.25rem", display: "flex", flexDirection: "column", gap: "0.125rem" }}>
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => handleClick(link.href)}
-                  className="text-sm py-2.5 text-left"
                   style={{
                     background: "none",
                     border: "none",
                     cursor: "pointer",
-                    color: "#94a3b8",
+                    fontSize: "0.9375rem",
+                    padding: "0.75rem 0",
+                    textAlign: "left",
+                    letterSpacing: "-0.005em",
+                    color: "#6e6e73",
                   }}
                 >
                   {link.label}

@@ -11,14 +11,14 @@ const fadeUp: Variants = {
 };
 
 const sectionStyle = {
-  padding: "6rem 1.5rem",
-  maxWidth: "1100px",
+  padding: "clamp(4rem, 8vw, 8rem) clamp(1.25rem, 5vw, 2.5rem)",
+  maxWidth: "1120px",
   margin: "0 auto",
 };
 
 export default function About() {
   return (
-    <section id="about" style={{ padding: "6rem 0", position: "relative" }}>
+    <section id="about" style={{ padding: "clamp(4rem, 8vw, 8rem) 0", position: "relative" }}>
       {/* Divider */}
       <div
         style={{
@@ -28,7 +28,7 @@ export default function About() {
           transform: "translateX(-50%)",
           width: "1px",
           height: "6rem",
-          background: "linear-gradient(to bottom, transparent, rgba(99,102,241,0.3))",
+          background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.04))",
         }}
       />
       <div style={sectionStyle}>
@@ -37,12 +37,12 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          style={{ marginBottom: "3rem" }}
+          style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}
         >
           <p
             style={{
-              fontSize: "0.75rem",
-              letterSpacing: "0.12em",
+              fontSize: "0.6875rem",
+              letterSpacing: "0.1em",
               color: "#6366f1",
               fontWeight: 600,
               marginBottom: "0.6rem",
@@ -53,10 +53,12 @@ export default function About() {
           </p>
           <h2
             style={{
-              fontSize: "clamp(1.7rem, 4vw, 2.5rem)",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
+              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
               fontWeight: 700,
-              color: "#e7edf8",
-              letterSpacing: "-0.02em",
+              color: "#1d1d1f",
+              letterSpacing: "-0.032em",
+              lineHeight: 1.08,
             }}
           >
             About Me
@@ -81,10 +83,11 @@ export default function About() {
           >
             <p
               style={{
-                fontSize: "1.05rem",
-                lineHeight: 1.85,
-                color: "#94a3b8",
-                marginBottom: "2rem",
+                fontSize: "1.0625rem",
+                lineHeight: 1.82,
+                color: "#6e6e73",
+                marginBottom: "2.25rem",
+                letterSpacing: "-0.008em",
               }}
             >
               {profile.about}
@@ -106,16 +109,18 @@ export default function About() {
                 <div key={stat.label}>
                   <p
                     style={{
-                      fontSize: "1.9rem",
+                      fontSize: "2.25rem",
                       fontWeight: 700,
-                      color: "#818cf8",
+                      color: "#6366f1",
                       lineHeight: 1,
                       marginBottom: "0.3rem",
+                      letterSpacing: "-0.03em",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
                     }}
                   >
                     {stat.value}
                   </p>
-                  <p style={{ fontSize: "0.8rem", color: "#475569" }}>
+                  <p style={{ fontSize: "0.8125rem", color: "#6e6e73", letterSpacing: "-0.005em" }}>
                     {stat.label}
                   </p>
                 </div>
@@ -133,9 +138,9 @@ export default function About() {
           >
             <p
               style={{
-                fontSize: "0.75rem",
+                fontSize: "0.6875rem",
                 letterSpacing: "0.1em",
-                color: "#475569",
+                color: "#6e6e73",
                 fontWeight: 600,
                 textTransform: "uppercase",
                 marginBottom: "0.25rem",
@@ -154,8 +159,9 @@ export default function About() {
                 style={{
                   padding: "1.25rem 1.4rem",
                   borderRadius: "0.75rem",
-                  border: "1px solid rgba(30,45,74,0.7)",
-                  background: "rgba(13,17,23,0.7)",
+                  border: "1px solid rgba(0,0,0,0.08)",
+                  background: "#ffffff",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
                   transition: "border-color 0.2s",
                 }}
                 onMouseEnter={(e) => {
@@ -164,7 +170,7 @@ export default function About() {
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor =
-                    "rgba(30,45,74,0.7)";
+                    "rgba(0,0,0,0.08)";
                 }}
               >
                 <div style={{ display: "flex", alignItems: "start", gap: "0.75rem" }}>
@@ -172,33 +178,35 @@ export default function About() {
                   <div>
                     <p
                       style={{
-                        fontSize: "0.92rem",
+                        fontSize: "0.9375rem",
                         fontWeight: 600,
-                        color: "#e2e8f0",
+                        color: "#1d1d1f",
                         marginBottom: "0.2rem",
-                        lineHeight: 1.3,
+                        lineHeight: 1.35,
+                        letterSpacing: "-0.012em",
                       }}
                     >
                       {edu.degree}
                     </p>
                     <p
                       style={{
-                        fontSize: "0.8rem",
+                        fontSize: "0.8125rem",
                         color: "#6366f1",
                         marginBottom: "0.25rem",
+                        letterSpacing: "-0.005em",
                       }}
                     >
                       {edu.institution}
                     </p>
-                    <p style={{ fontSize: "0.78rem", color: "#475569" }}>
+                    <p style={{ fontSize: "0.8125rem", color: "#6e6e73" }}>
                       {edu.period}
                     </p>
                     <p
                       style={{
-                        fontSize: "0.76rem",
-                        color: "#64748b",
-                        marginTop: "0.25rem",
-                        lineHeight: 1.4,
+                      fontSize: "0.8125rem",
+                        color: "#6e6e73",
+                        marginTop: "0.3rem",
+                        lineHeight: 1.5,
                       }}
                     >
                       {edu.detail}

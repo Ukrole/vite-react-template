@@ -3,19 +3,19 @@ import { experience } from "../data/resume";
 
 export default function Experience() {
   return (
-    <section id="experience" style={{ padding: "6rem 0", position: "relative" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 1.5rem" }}>
+    <section id="experience" style={{ padding: "clamp(4rem, 8vw, 8rem) 0", position: "relative" }}>
+        <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "0 clamp(1.25rem, 5vw, 2.5rem)" }}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          style={{ marginBottom: "3rem" }}
+          style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}
         >
           <p
             style={{
-              fontSize: "0.75rem",
-              letterSpacing: "0.12em",
+              fontSize: "0.6875rem",
+              letterSpacing: "0.1em",
               color: "#6366f1",
               fontWeight: 600,
               marginBottom: "0.6rem",
@@ -26,10 +26,12 @@ export default function Experience() {
           </p>
           <h2
             style={{
-              fontSize: "clamp(1.7rem, 4vw, 2.5rem)",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
+              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
               fontWeight: 700,
-              color: "#e7edf8",
-              letterSpacing: "-0.02em",
+              color: "#1d1d1f",
+              letterSpacing: "-0.032em",
+              lineHeight: 1.08,
             }}
           >
             Work Experience
@@ -46,7 +48,7 @@ export default function Experience() {
               bottom: 0,
               width: 1,
               background:
-                "linear-gradient(to bottom, rgba(99,102,241,0.5), rgba(99,102,241,0.05))",
+                "linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.04))",
             }}
           />
 
@@ -80,8 +82,8 @@ export default function Experience() {
                       width: 10,
                       height: 10,
                       borderRadius: "50%",
-                      background: i === 0 ? "#818cf8" : "#1e2d4a",
-                      border: `2px solid ${i === 0 ? "#6366f1" : "#2d3e5b"}`,
+                      background: i === 0 ? "#6366f1" : "#e5e5ea",
+                      border: `2px solid ${i === 0 ? "#6366f1" : "#c7c7cc"}`,
                       boxShadow: i === 0 ? "0 0 10px rgba(99,102,241,0.5)" : "none",
                       zIndex: 1,
                     }}
@@ -95,8 +97,9 @@ export default function Experience() {
                     flex: 1,
                     padding: "1.5rem 1.75rem",
                     borderRadius: "0.875rem",
-                    border: "1px solid rgba(30,45,74,0.7)",
-                    background: "rgba(13,17,23,0.7)",
+                    border: "1px solid rgba(0,0,0,0.08)",
+                    background: "#ffffff",
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
                     transition: "border-color 0.2s",
                   }}
                   onMouseEnter={(e) => {
@@ -105,7 +108,7 @@ export default function Experience() {
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLElement).style.borderColor =
-                      "rgba(30,45,74,0.7)";
+                      "rgba(0,0,0,0.08)";
                   }}
                 >
                   <div
@@ -121,27 +124,29 @@ export default function Experience() {
                     <div>
                       <h3
                         style={{
-                          fontSize: "0.97rem",
-                          fontWeight: 700,
-                          color: "#e2e8f0",
+                          fontSize: "1.0625rem",
+                          fontWeight: 600,
+                          color: "#1d1d1f",
                           marginBottom: "0.2rem",
+                          letterSpacing: "-0.015em",
                         }}
                       >
                         {exp.role}
                       </h3>
-                      <p style={{ fontSize: "0.83rem", color: "#6366f1", fontWeight: 500 }}>
+                      <p style={{ fontSize: "0.875rem", color: "#6366f1", fontWeight: 500, letterSpacing: "-0.005em" }}>
                         {exp.company}
                       </p>
                     </div>
                     <span
                       style={{
-                        padding: "0.2rem 0.75rem",
-                        borderRadius: "9999px",
-                        background: "rgba(30,45,74,0.8)",
-                        border: "1px solid rgba(30,45,74,1)",
-                        fontSize: "0.75rem",
-                        color: "#64748b",
-                        whiteSpace: "nowrap",
+                      padding: "0.25rem 0.875rem",
+                      borderRadius: "9999px",
+                      background: "rgba(0,0,0,0.08)",
+                      border: "1px solid rgba(0,0,0,0.12)",
+                      fontSize: "0.8125rem",
+                      color: "#6e6e73",
+                      whiteSpace: "nowrap",
+                      letterSpacing: "-0.005em",
                       }}
                     >
                       {exp.period}
@@ -150,11 +155,12 @@ export default function Experience() {
 
                   <p
                     style={{
-                      fontSize: "0.875rem",
-                      color: "#94a3b8",
-                      lineHeight: 1.72,
-                      marginTop: "0.75rem",
-                      marginBottom: "1rem",
+                    fontSize: "0.9375rem",
+                    color: "#6e6e73",
+                    lineHeight: 1.72,
+                    marginTop: "0.875rem",
+                    marginBottom: "1.125rem",
+                    letterSpacing: "-0.008em",
                     }}
                   >
                     {exp.description}
@@ -170,7 +176,7 @@ export default function Experience() {
                           background: "rgba(99,102,241,0.07)",
                           border: "1px solid rgba(99,102,241,0.15)",
                           fontSize: "0.72rem",
-                          color: "#818cf8",
+                          color: "#6366f1",
                           fontWeight: 500,
                         }}
                       >

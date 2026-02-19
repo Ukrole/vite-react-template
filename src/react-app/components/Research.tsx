@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { researchInterests } from "../data/resume";
 
 const COLORS = [
-  { bg: "rgba(99,102,241,0.08)", border: "rgba(99,102,241,0.25)", text: "#818cf8" },
-  { bg: "rgba(139,92,246,0.08)", border: "rgba(139,92,246,0.25)", text: "#a78bfa" },
-  { bg: "rgba(56,189,248,0.08)", border: "rgba(56,189,248,0.25)", text: "#38bdf8" },
-  { bg: "rgba(34,197,94,0.07)", border: "rgba(34,197,94,0.2)", text: "#4ade80" },
-  { bg: "rgba(249,115,22,0.07)", border: "rgba(249,115,22,0.2)", text: "#fb923c" },
-  { bg: "rgba(236,72,153,0.07)", border: "rgba(236,72,153,0.2)", text: "#f472b6" },
+  { bg: "rgba(99,102,241,0.07)", border: "rgba(99,102,241,0.25)", text: "#6366f1" },
+  { bg: "rgba(139,92,246,0.08)", border: "rgba(139,92,246,0.25)", text: "#7c3aed" },
+  { bg: "rgba(2,132,199,0.07)", border: "rgba(2,132,199,0.2)", text: "#0284c7" },
+  { bg: "rgba(22,163,74,0.07)", border: "rgba(22,163,74,0.2)", text: "#16a34a" },
+  { bg: "rgba(234,88,12,0.07)", border: "rgba(234,88,12,0.2)", text: "#ea580c" },
+  { bg: "rgba(219,39,119,0.07)", border: "rgba(219,39,119,0.2)", text: "#db2777" },
 ];
 
 export default function Research() {
@@ -15,16 +15,16 @@ export default function Research() {
     <section
       id="research"
       style={{
-        padding: "6rem 0",
-        background: "rgba(13,17,23,0.6)",
+        padding: "clamp(4rem, 8vw, 8rem) 0",
+        background: "#f5f5f7",
         position: "relative",
       }}
     >
       <div
         style={{
-          maxWidth: "1100px",
+          maxWidth: "1120px",
           margin: "0 auto",
-          padding: "0 1.5rem",
+          padding: "0 clamp(1.25rem, 5vw, 2.5rem)",
         }}
       >
         <motion.div
@@ -32,12 +32,12 @@ export default function Research() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          style={{ marginBottom: "3rem" }}
+          style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}
         >
           <p
             style={{
-              fontSize: "0.75rem",
-              letterSpacing: "0.12em",
+              fontSize: "0.6875rem",
+              letterSpacing: "0.1em",
               color: "#6366f1",
               fontWeight: 600,
               marginBottom: "0.6rem",
@@ -48,10 +48,12 @@ export default function Research() {
           </p>
           <h2
             style={{
-              fontSize: "clamp(1.7rem, 4vw, 2.5rem)",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
+              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
               fontWeight: 700,
-              color: "#e7edf8",
-              letterSpacing: "-0.02em",
+              color: "#1d1d1f",
+              letterSpacing: "-0.032em",
+              lineHeight: 1.08,
             }}
           >
             Research Interests
@@ -91,15 +93,16 @@ export default function Research() {
                 <div>
                   <p
                     style={{
-                      fontSize: "0.95rem",
+                      fontSize: "1rem",
                       fontWeight: 600,
                       color: color.text,
                       marginBottom: "0.2rem",
+                      letterSpacing: "-0.012em",
                     }}
                   >
                     {item.label}
                   </p>
-                  <p style={{ fontSize: "0.78rem", color: "#64748b" }}>
+                  <p style={{ fontSize: "0.8125rem", color: "#6e6e73", letterSpacing: "-0.005em" }}>
                     {item.detail}
                   </p>
                 </div>

@@ -6,23 +6,23 @@ export default function Projects() {
     <section
       id="projects"
       style={{
-        padding: "6rem 0",
-        background: "rgba(13,17,23,0.5)",
+        padding: "clamp(4rem, 8vw, 8rem) 0",
+        background: "#f5f5f7",
         position: "relative",
       }}
     >
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 1.5rem" }}>
+        <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "0 clamp(1.25rem, 5vw, 2.5rem)" }}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          style={{ marginBottom: "3rem" }}
+          style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}
         >
           <p
             style={{
-              fontSize: "0.75rem",
-              letterSpacing: "0.12em",
+              fontSize: "0.6875rem",
+              letterSpacing: "0.1em",
               color: "#6366f1",
               fontWeight: 600,
               marginBottom: "0.6rem",
@@ -33,10 +33,12 @@ export default function Projects() {
           </p>
           <h2
             style={{
-              fontSize: "clamp(1.7rem, 4vw, 2.5rem)",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
+              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
               fontWeight: 700,
-              color: "#e7edf8",
-              letterSpacing: "-0.02em",
+              color: "#1d1d1f",
+              letterSpacing: "-0.032em",
+              lineHeight: 1.08,
             }}
           >
             Projects
@@ -64,10 +66,13 @@ export default function Projects() {
                 borderRadius: "0.875rem",
                 border: proj.highlight
                   ? "1px solid rgba(99,102,241,0.3)"
-                  : "1px solid rgba(30,45,74,0.7)",
+                  : "1px solid rgba(0,0,0,0.08)",
                 background: proj.highlight
-                  ? "rgba(99,102,241,0.05)"
-                  : "rgba(13,17,23,0.8)",
+                  ? "rgba(99,102,241,0.06)"
+                  : "#ffffff",
+                boxShadow: proj.highlight
+                  ? "none"
+                  : "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
                 cursor: "default",
                 transition: "box-shadow 0.25s",
                 position: "relative",
@@ -86,7 +91,7 @@ export default function Projects() {
                     background: "rgba(99,102,241,0.12)",
                     border: "1px solid rgba(99,102,241,0.25)",
                     fontSize: "0.68rem",
-                    color: "#818cf8",
+                    color: "#6366f1",
                     fontWeight: 600,
                     letterSpacing: "0.06em",
                   }}
@@ -102,7 +107,7 @@ export default function Projects() {
                     flexShrink: 0,
                     padding: "0.5rem",
                     borderRadius: "0.5rem",
-                    background: "rgba(30,45,74,0.5)",
+                    background: "rgba(0,0,0,0.06)",
                   }}
                 >
                   {proj.icon}
@@ -110,16 +115,17 @@ export default function Projects() {
                 <div>
                   <h3
                     style={{
-                      fontSize: "1rem",
+                      fontSize: "1.0625rem",
                       fontWeight: 700,
-                      color: "#e2e8f0",
+                      color: "#1d1d1f",
                       marginBottom: "0.25rem",
                       lineHeight: 1.3,
+                      letterSpacing: "-0.015em",
                     }}
                   >
                     {proj.title}
                   </h3>
-                  <p style={{ fontSize: "0.78rem", color: "#6366f1", fontWeight: 500 }}>
+                  <p style={{ fontSize: "0.8125rem", color: "#6366f1", fontWeight: 500, letterSpacing: "-0.005em" }}>
                     {proj.org}
                   </p>
                 </div>
@@ -127,11 +133,12 @@ export default function Projects() {
 
               <p
                 style={{
-                  fontSize: "0.875rem",
-                  color: "#94a3b8",
-                  lineHeight: 1.7,
-                  marginBottom: "1.25rem",
+                  fontSize: "0.9375rem",
+                  color: "#6e6e73",
+                  lineHeight: 1.72,
+                  marginBottom: "1.375rem",
                   flex: 1,
+                  letterSpacing: "-0.008em",
                 }}
               >
                 {proj.description}
@@ -144,10 +151,10 @@ export default function Projects() {
                     style={{
                       padding: "0.22rem 0.65rem",
                       borderRadius: "0.375rem",
-                      background: "rgba(30,45,74,0.8)",
-                      border: "1px solid rgba(30,45,74,1)",
+                      background: "rgba(0,0,0,0.1)",
+                      border: "1px solid rgba(0,0,0,0.1)",
                       fontSize: "0.72rem",
-                      color: "#64748b",
+                      color: "#6e6e73",
                       fontWeight: 500,
                     }}
                   >

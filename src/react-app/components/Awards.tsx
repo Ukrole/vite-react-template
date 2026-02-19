@@ -8,23 +8,23 @@ export default function Awards() {
     <section
       id="awards"
       style={{
-        padding: "6rem 0",
-        background: "rgba(13,17,23,0.5)",
+        padding: "clamp(4rem, 8vw, 8rem) 0",
+        background: "#f5f5f7",
         position: "relative",
       }}
     >
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 1.5rem" }}>
+        <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "0 clamp(1.25rem, 5vw, 2.5rem)" }}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          style={{ marginBottom: "3rem" }}
+          style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}
         >
           <p
             style={{
-              fontSize: "0.75rem",
-              letterSpacing: "0.12em",
+              fontSize: "0.6875rem",
+              letterSpacing: "0.1em",
               color: "#6366f1",
               fontWeight: 600,
               marginBottom: "0.6rem",
@@ -35,10 +35,12 @@ export default function Awards() {
           </p>
           <h2
             style={{
-              fontSize: "clamp(1.7rem, 4vw, 2.5rem)",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
+              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
               fontWeight: 700,
-              color: "#e7edf8",
-              letterSpacing: "-0.02em",
+              color: "#1d1d1f",
+              letterSpacing: "-0.032em",
+              lineHeight: 1.08,
             }}
           >
             Honors & Awards
@@ -63,8 +65,9 @@ export default function Awards() {
               style={{
                 padding: "1.35rem 1.5rem",
                 borderRadius: "0.75rem",
-                border: "1px solid rgba(30,45,74,0.7)",
-                background: "rgba(13,17,23,0.8)",
+                border: "1px solid rgba(0,0,0,0.08)",
+                background: "#ffffff",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
                 display: "flex",
                 alignItems: "start",
                 gap: "0.875rem",
@@ -76,7 +79,7 @@ export default function Awards() {
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(30,45,74,0.7)";
+                  "rgba(0,0,0,0.08)";
               }}
             >
               <span
@@ -93,22 +96,21 @@ export default function Awards() {
                   style={{
                     fontSize: "0.88rem",
                     fontWeight: 600,
-                    color: "#e2e8f0",
+                    color: "#1d1d1f",
                     lineHeight: 1.4,
                     marginBottom: "0.25rem",
                   }}
                 >
                   {award.title}
                 </p>
-                <p style={{ fontSize: "0.77rem", color: "#6366f1", marginBottom: "0.2rem" }}>
+                <p style={{ fontSize: "0.8125rem", color: "#6366f1", marginBottom: "0.2rem", letterSpacing: "-0.005em" }}>
                   {award.org}
                 </p>
                 <p
                   style={{
-                    fontSize: "0.73rem",
-                    color: "#475569",
-                    fontFamily: "monospace",
-                    letterSpacing: "0.04em",
+                  fontSize: "0.8125rem",
+                  color: "#6e6e73",
+                  letterSpacing: "0.02em",
                   }}
                 >
                   {award.year}

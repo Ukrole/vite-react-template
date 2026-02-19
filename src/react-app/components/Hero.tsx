@@ -75,7 +75,7 @@ export default function Hero() {
           height: 480,
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(99,102,241,0.04) 0%, transparent 70%)",
           filter: "blur(60px)",
           pointerEvents: "none",
         }}
@@ -90,13 +90,13 @@ export default function Hero() {
           height: 380,
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(139,92,246,0.04) 0%, transparent 70%)",
           filter: "blur(60px)",
           pointerEvents: "none",
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-20 w-full">
+        <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "clamp(5.5rem, 12vw, 9rem) clamp(1.25rem, 5vw, 2.5rem) clamp(4rem, 8vw, 7rem)", width: "100%" }}>
         <div className="max-w-3xl">
           {/* Badge */}
           <motion.div
@@ -111,14 +111,14 @@ export default function Hero() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.5rem",
-                padding: "0.3rem 0.9rem",
+                padding: "0.3rem 1rem",
                 borderRadius: "9999px",
                 border: "1px solid rgba(99,102,241,0.35)",
-                background: "rgba(99,102,241,0.08)",
-                fontSize: "0.78rem",
-                color: "#818cf8",
-                letterSpacing: "0.06em",
-                fontWeight: 500,
+                background: "rgba(99,102,241,0.07)",
+                fontSize: "0.6875rem",
+                color: "#6366f1",
+                letterSpacing: "0.08em",
+                fontWeight: 600,
               }}
             >
               <span
@@ -142,12 +142,13 @@ export default function Hero() {
             animate="visible"
             custom={1}
             style={{
-              fontSize: "clamp(2.8rem, 7vw, 5rem)",
+              fontSize: "clamp(3.25rem, 8.5vw, 5.75rem)",
               fontWeight: 800,
-              lineHeight: 1.08,
-              letterSpacing: "-0.02em",
-              marginBottom: "1rem",
-              color: "#e7edf8",
+              lineHeight: 1.04,
+              letterSpacing: "-0.04em",
+              marginBottom: "1.125rem",
+              color: "#1d1d1f",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
             }}
           >
             {profile.name}
@@ -160,14 +161,15 @@ export default function Hero() {
             animate="visible"
             custom={2}
             style={{
-              fontSize: "clamp(1.1rem, 3vw, 1.5rem)",
+              fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)",
               fontWeight: 500,
-              marginBottom: "1.5rem",
-              color: "#64748b",
-              height: "2rem",
+              marginBottom: "1.75rem",
+              color: "#6e6e73",
+              height: "2.25rem",
               display: "flex",
               alignItems: "center",
-              gap: "0.5rem",
+              gap: "0.4rem",
+              letterSpacing: "-0.01em",
             }}
           >
             <span className="gradient-text" style={{ minWidth: 0 }}>
@@ -191,11 +193,12 @@ export default function Hero() {
             animate="visible"
             custom={3}
             style={{
-              fontSize: "1.05rem",
-              lineHeight: 1.75,
-              color: "#94a3b8",
-              maxWidth: "620px",
-              marginBottom: "2.5rem",
+              fontSize: "1.0625rem",
+              lineHeight: 1.78,
+              color: "#6e6e73",
+              maxWidth: "580px",
+              marginBottom: "2.75rem",
+              letterSpacing: "-0.008em",
             }}
           >
             Building statistically efficient and system-aware AI for distributed
@@ -213,9 +216,10 @@ export default function Hero() {
               display: "flex",
               alignItems: "center",
               gap: "0.4rem",
-              fontSize: "0.88rem",
-              color: "#64748b",
-              marginBottom: "2.5rem",
+              fontSize: "0.875rem",
+              color: "#6e6e73",
+              marginBottom: "2.75rem",
+              letterSpacing: "-0.005em",
             }}
           >
             <span>📍</span>
@@ -241,12 +245,13 @@ export default function Hero() {
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
               style={{
-                padding: "0.75rem 1.75rem",
-                borderRadius: "0.5rem",
+                padding: "0.8125rem 1.875rem",
+                borderRadius: "0.625rem",
                 background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
                 color: "#fff",
                 fontWeight: 600,
-                fontSize: "0.92rem",
+                fontSize: "0.9375rem",
+                letterSpacing: "-0.008em",
                 cursor: "pointer",
                 transition: "opacity 0.2s, transform 0.2s",
                 display: "inline-block",
@@ -271,27 +276,28 @@ export default function Hero() {
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
               style={{
-                padding: "0.75rem 1.75rem",
-                borderRadius: "0.5rem",
+                padding: "0.8125rem 1.875rem",
+                borderRadius: "0.625rem",
                 background: "transparent",
-                color: "#94a3b8",
+                color: "#6e6e73",
                 fontWeight: 500,
-                fontSize: "0.92rem",
+                fontSize: "0.9375rem",
+                letterSpacing: "-0.008em",
                 cursor: "pointer",
-                border: "1px solid rgba(30,45,74,0.9)",
+                border: "1px solid rgba(0,0,0,0.12)",
                 transition: "color 0.2s, border-color 0.2s, transform 0.2s",
                 display: "inline-block",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#e7edf8";
+                (e.currentTarget as HTMLElement).style.color = "#6366f1";
                 (e.currentTarget as HTMLElement).style.borderColor =
                   "rgba(99,102,241,0.5)";
                 (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#94a3b8";
+                (e.currentTarget as HTMLElement).style.color = "#1d1d1f";
                 (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(30,45,74,0.9)";
+                  "rgba(0,0,0,0.12)";
                 (e.currentTarget as HTMLElement).style.transform = "none";
               }}
             >
@@ -305,25 +311,25 @@ export default function Hero() {
                 padding: "0.75rem 1rem",
                 borderRadius: "0.5rem",
                 background: "transparent",
-                color: "#64748b",
+                color: "#6e6e73",
                 fontWeight: 500,
                 fontSize: "0.92rem",
                 cursor: "pointer",
-                border: "1px solid rgba(30,45,74,0.9)",
+                border: "1px solid rgba(0,0,0,0.12)",
                 transition: "color 0.2s, border-color 0.2s",
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.4rem",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#e7edf8";
+                (e.currentTarget as HTMLElement).style.color = "#6366f1";
                 (e.currentTarget as HTMLElement).style.borderColor =
                   "rgba(99,102,241,0.4)";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#64748b";
+                (e.currentTarget as HTMLElement).style.color = "#1d1d1f";
                 (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(30,45,74,0.9)";
+                  "rgba(0,0,0,0.12)";
               }}
             >
               GitHub ↗
@@ -348,7 +354,7 @@ export default function Hero() {
           gap: "0.5rem",
         }}
       >
-        <span style={{ fontSize: "0.72rem", color: "#475569", letterSpacing: "0.1em" }}>
+        <span style={{ fontSize: "0.72rem", color: "#86868b", letterSpacing: "0.1em" }}>
           SCROLL
         </span>
         <motion.div
@@ -357,7 +363,7 @@ export default function Hero() {
           style={{
             width: 1,
             height: 40,
-            background: "linear-gradient(to bottom, rgba(99,102,241,0.6), transparent)",
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.25), transparent)",
           }}
         />
       </motion.div>
