@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { awards } from "../data/resume";
 
-const EMOJI = ["🏆", "🥇", "🎖️", "📋", "💻", "🔬", "🔬", "🌏"];
-
 export default function Awards() {
   return (
     <section
@@ -70,7 +68,6 @@ export default function Awards() {
                 boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
                 display: "flex",
                 alignItems: "start",
-                gap: "0.875rem",
                 transition: "border-color 0.2s",
               }}
               onMouseEnter={(e) => {
@@ -82,15 +79,6 @@ export default function Awards() {
                   "rgba(0,0,0,0.08)";
               }}
             >
-              <span
-                style={{
-                  fontSize: "1.25rem",
-                  flexShrink: 0,
-                  marginTop: "0.1rem",
-                }}
-              >
-                {EMOJI[i % EMOJI.length]}
-              </span>
               <div>
                 <p
                   style={{

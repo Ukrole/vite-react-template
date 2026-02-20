@@ -174,7 +174,6 @@ export default function About() {
                 }}
               >
                 <div style={{ display: "flex", alignItems: "start", gap: "0.75rem" }}>
-                  <span style={{ fontSize: "1.4rem" }}>{edu.icon}</span>
                   <div>
                     <p
                       style={{

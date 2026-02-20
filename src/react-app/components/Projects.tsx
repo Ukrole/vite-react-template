@@ -80,39 +80,8 @@ export default function Projects() {
                 flexDirection: "column",
               }}
             >
-              {proj.highlight && (
-                <span
-                  style={{
-                    position: "absolute",
-                    top: "1rem",
-                    right: "1rem",
-                    padding: "0.18rem 0.6rem",
-                    borderRadius: "9999px",
-                    background: "rgba(99,102,241,0.12)",
-                    border: "1px solid rgba(99,102,241,0.25)",
-                    fontSize: "0.68rem",
-                    color: "#6366f1",
-                    fontWeight: 600,
-                    letterSpacing: "0.06em",
-                  }}
-                >
-                  FEATURED
-                </span>
-              )}
-
-              <div style={{ display: "flex", alignItems: "start", gap: "1rem", marginBottom: "1rem" }}>
-                <span
-                  style={{
-                    fontSize: "1.8rem",
-                    flexShrink: 0,
-                    padding: "0.5rem",
-                    borderRadius: "0.5rem",
-                    background: "rgba(0,0,0,0.06)",
-                  }}
-                >
-                  {proj.icon}
-                </span>
-                <div>
+              <div style={{ marginBottom: "1rem" }}
+              >
                   <h3
                     style={{
                       fontSize: "1.0625rem",
@@ -128,7 +97,6 @@ export default function Projects() {
                   <p style={{ fontSize: "0.8125rem", color: "#6366f1", fontWeight: 500, letterSpacing: "-0.005em" }}>
                     {proj.org}
                   </p>
-                </div>
               </div>
 
               <p
