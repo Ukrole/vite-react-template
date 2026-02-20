@@ -42,7 +42,7 @@ export default function Footer() {
               letterSpacing: "-0.005em",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.color = "#6366f1";
+              (e.currentTarget as HTMLElement).style.color = "#0066cc";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLElement).style.color = "#48484a";

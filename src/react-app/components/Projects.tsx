@@ -23,7 +23,7 @@ export default function Projects() {
             style={{
               fontSize: "0.6875rem",
               letterSpacing: "0.1em",
-              color: "#6366f1",
+              color: "#0066cc",
               fontWeight: 600,
               marginBottom: "0.6rem",
               textTransform: "uppercase",
@@ -65,10 +65,10 @@ export default function Projects() {
                 padding: "1.75rem",
                 borderRadius: "0.875rem",
                 border: proj.highlight
-                  ? "1px solid rgba(99,102,241,0.3)"
+                  ? "1px solid rgba(0,102,204,0.2)"
                   : "1px solid rgba(0,0,0,0.08)",
                 background: proj.highlight
-                  ? "rgba(99,102,241,0.06)"
+                  ? "rgba(0,102,204,0.05)"
                   : "#ffffff",
                 boxShadow: proj.highlight
                   ? "none"
@@ -94,7 +94,7 @@ export default function Projects() {
                   >
                     {proj.title}
                   </h3>
-                  <p style={{ fontSize: "0.8125rem", color: "#6366f1", fontWeight: 500, letterSpacing: "-0.005em" }}>
+                  <p style={{ fontSize: "0.8125rem", color: "#0066cc", fontWeight: 500, letterSpacing: "-0.005em" }}>
                     {proj.org}
                   </p>
               </div>

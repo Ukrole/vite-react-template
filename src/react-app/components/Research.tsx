@@ -1,15 +1,6 @@
 import { motion } from "framer-motion";
 import { researchInterests } from "../data/resume";
 
-const COLORS = [
-  { bg: "rgba(99,102,241,0.07)", border: "rgba(99,102,241,0.25)", text: "#6366f1" },
-  { bg: "rgba(139,92,246,0.08)", border: "rgba(139,92,246,0.25)", text: "#7c3aed" },
-  { bg: "rgba(2,132,199,0.07)", border: "rgba(2,132,199,0.2)", text: "#0284c7" },
-  { bg: "rgba(22,163,74,0.07)", border: "rgba(22,163,74,0.2)", text: "#16a34a" },
-  { bg: "rgba(234,88,12,0.07)", border: "rgba(234,88,12,0.2)", text: "#ea580c" },
-  { bg: "rgba(219,39,119,0.07)", border: "rgba(219,39,119,0.2)", text: "#db2777" },
-];
-
 export default function Research() {
   return (
     <section
@@ -38,7 +29,7 @@ export default function Research() {
             style={{
               fontSize: "0.6875rem",
               letterSpacing: "0.1em",
-              color: "#6366f1",
+              color: "#6e6e73",
               fontWeight: 600,
               marginBottom: "0.6rem",
               textTransform: "uppercase",
@@ -63,52 +54,71 @@ export default function Research() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            gap: "1rem",
+            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            gap: "1px",
+            border: "1px solid rgba(0,0,0,0.08)",
+            borderRadius: "1rem",
+            overflow: "hidden",
+            background: "rgba(0,0,0,0.08)",
+            boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
           }}
         >
-          {researchInterests.map((item, i) => {
-            const color = COLORS[i % COLORS.length];
-            return (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07, duration: 0.5 }}
-                whileHover={{ y: -4, scale: 1.01 }}
+          {researchInterests.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.06, duration: 0.4 }}
+              style={{
+                padding: "1.75rem 2rem",
+                background: "#ffffff",
+                cursor: "default",
+                transition: "background 0.15s",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "#f9f9fb";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "#ffffff";
+              }}
+            >
+              <p
                 style={{
-                  padding: "1.5rem 1.75rem",
-                  borderRadius: "0.75rem",
-                  background: color.bg,
-                  border: `1px solid ${color.border}`,
-                  cursor: "default",
-                  transition: "box-shadow 0.2s",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1rem",
+                  fontSize: "0.75rem",
+                  fontWeight: 500,
+                  color: "#aeaeb2",
+                  letterSpacing: "0.04em",
+                  marginBottom: "0.6rem",
+                  fontVariantNumeric: "tabular-nums",
                 }}
               >
-                <span style={{ fontSize: "1.8rem", flexShrink: 0 }}>{item.icon}</span>
-                <div>
-                  <p
-                    style={{
-                      fontSize: "1rem",
-                      fontWeight: 600,
-                      color: color.text,
-                      marginBottom: "0.2rem",
-                      letterSpacing: "-0.012em",
-                    }}
-                  >
-                    {item.label}
-                  </p>
-                  <p style={{ fontSize: "0.8125rem", color: "#6e6e73", letterSpacing: "-0.005em" }}>
-                    {item.detail}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <p
+                style={{
+                  fontSize: "0.9375rem",
+                  fontWeight: 600,
+                  color: "#1d1d1f",
+                  marginBottom: "0.3rem",
+                  letterSpacing: "-0.015em",
+                  lineHeight: 1.35,
+                }}
+              >
+                {item.label}
+              </p>
+              <p
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "#6e6e73",
+                  letterSpacing: "-0.005em",
+                  lineHeight: 1.5,
+                }}
+              >
+                {item.detail}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

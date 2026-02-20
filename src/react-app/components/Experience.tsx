@@ -16,7 +16,7 @@ export default function Experience() {
             style={{
               fontSize: "0.6875rem",
               letterSpacing: "0.1em",
-              color: "#6366f1",
+              color: "#0066cc",
               fontWeight: 600,
               marginBottom: "0.6rem",
               textTransform: "uppercase",
@@ -82,9 +82,9 @@ export default function Experience() {
                       width: 10,
                       height: 10,
                       borderRadius: "50%",
-                      background: i === 0 ? "#6366f1" : "#e5e5ea",
-                      border: `2px solid ${i === 0 ? "#6366f1" : "#c7c7cc"}`,
-                      boxShadow: i === 0 ? "0 0 10px rgba(99,102,241,0.5)" : "none",
+                      background: i === 0 ? "#0066cc" : "#e5e5ea",
+                      border: `2px solid ${i === 0 ? "#0066cc" : "#c7c7cc"}`,
+                      boxShadow: i === 0 ? "0 0 10px rgba(0,102,204,0.35)" : "none",
                       zIndex: 1,
                     }}
                   />
@@ -104,7 +104,7 @@ export default function Experience() {
                   }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLElement).style.borderColor =
-                      "rgba(99,102,241,0.3)";
+                      "rgba(0,102,204,0.2)";
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLElement).style.borderColor =
@@ -133,7 +133,7 @@ export default function Experience() {
                       >
                         {exp.role}
                       </h3>
-                      <p style={{ fontSize: "0.875rem", color: "#6366f1", fontWeight: 500, letterSpacing: "-0.005em" }}>
+                      <p style={{ fontSize: "0.875rem", color: "#0066cc", fontWeight: 500, letterSpacing: "-0.005em" }}>
                         {exp.company}
                       </p>
                     </div>
@@ -173,10 +173,10 @@ export default function Experience() {
                         style={{
                           padding: "0.18rem 0.6rem",
                           borderRadius: "0.375rem",
-                          background: "rgba(99,102,241,0.07)",
-                          border: "1px solid rgba(99,102,241,0.15)",
+                          background: "rgba(0,102,204,0.06)",
+                          border: "1px solid rgba(0,102,204,0.12)",
                           fontSize: "0.72rem",
-                          color: "#6366f1",
+                          color: "#0066cc",
                           fontWeight: 500,
                         }}
                       >

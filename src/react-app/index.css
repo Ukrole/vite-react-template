@@ -41,10 +41,10 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #f5f5f7; }
 ::-webkit-scrollbar-thumb { background: #c7c7cc; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+::-webkit-scrollbar-thumb:hover { background: #0066cc; }
 
 /* ─── Selection ──────────────────────────────────────── */
-::selection { background: rgba(99,102,241,0.2); color: #ffffff; }
+::selection { background: rgba(0,102,204,0.15); color: #ffffff; }
 
 /* ─── Links ──────────────────────────────────────────── */
 a { text-decoration: none; color: inherit; }
@@ -59,7 +59,7 @@ button, input, select, textarea {
 
 /* ─── Gradient text utility ──────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 55%, #0ea5e9 100%);
+  background: linear-gradient(135deg, #0066cc 0%, #0077ed 50%, #0095e5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -78,7 +78,7 @@ button, input, select, textarea {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6366f1;
+  color: #6e6e73;
   margin-bottom: 0.6rem;
 }
 

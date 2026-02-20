@@ -43,7 +43,7 @@ export default function About() {
             style={{
               fontSize: "0.6875rem",
               letterSpacing: "0.1em",
-              color: "#6366f1",
+              color: "#0066cc",
               fontWeight: 600,
               marginBottom: "0.6rem",
               textTransform: "uppercase",
@@ -111,7 +111,7 @@ export default function About() {
                     style={{
                       fontSize: "2.25rem",
                       fontWeight: 700,
-                      color: "#6366f1",
+                      color: "#0066cc",
                       lineHeight: 1,
                       marginBottom: "0.3rem",
                       letterSpacing: "-0.03em",
@@ -166,7 +166,7 @@ export default function About() {
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor =
-                    "rgba(99,102,241,0.4)";
+                    "rgba(0,102,204,0.28)";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor =
@@ -190,7 +190,7 @@ export default function About() {
                     <p
                       style={{
                         fontSize: "0.8125rem",
-                        color: "#6366f1",
+                        color: "#0066cc",
                         marginBottom: "0.25rem",
                         letterSpacing: "-0.005em",
                       }}

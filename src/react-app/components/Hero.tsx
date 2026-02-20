@@ -113,10 +113,10 @@ export default function Hero() {
                 gap: "0.5rem",
                 padding: "0.3rem 1rem",
                 borderRadius: "9999px",
-                border: "1px solid rgba(99,102,241,0.35)",
-                background: "rgba(99,102,241,0.07)",
+                border: "1px solid rgba(0,102,204,0.25)",
+                background: "rgba(0,102,204,0.06)",
                 fontSize: "0.6875rem",
-                color: "#6366f1",
+                color: "#0066cc",
                 letterSpacing: "0.08em",
                 fontWeight: 600,
               }}
@@ -126,7 +126,7 @@ export default function Hero() {
                   width: 7,
                   height: 7,
                   borderRadius: "50%",
-                  background: "#818cf8",
+                  background: "#0066cc",
                   animation: "pulse 2s infinite",
                   display: "inline-block",
                 }}
@@ -179,7 +179,7 @@ export default function Hero() {
               style={{
                 width: 2,
                 height: "1.2em",
-                background: "#818cf8",
+                background: "#0066cc",
                 display: "inline-block",
                 animation: "blink 1s step-end infinite",
               }}
@@ -247,7 +247,7 @@ export default function Hero() {
               style={{
                 padding: "0.8125rem 1.875rem",
                 borderRadius: "0.625rem",
-                background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+                background: "linear-gradient(135deg, #0066cc, #0077ed)",
                 color: "#fff",
                 fontWeight: 600,
                 fontSize: "0.9375rem",
@@ -289,9 +289,9 @@ export default function Hero() {
                 display: "inline-block",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#6366f1";
+                (e.currentTarget as HTMLElement).style.color = "#0066cc";
                 (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(99,102,241,0.5)";
+                  "rgba(0,102,204,0.35)";
                 (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
@@ -322,9 +322,9 @@ export default function Hero() {
                 gap: "0.4rem",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#6366f1";
+                (e.currentTarget as HTMLElement).style.color = "#0066cc";
                 (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(99,102,241,0.4)";
+                  "rgba(0,102,204,0.28)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.color = "#1d1d1f";

@@ -100,11 +100,11 @@ export default function Navbar() {
                   fontSize: "0.875rem",
                   letterSpacing: "-0.005em",
                   transition: "color 0.2s",
-                  color: isActive ? "#6366f1" : "#1d1d1f",
+                  color: isActive ? "#0066cc" : "#1d1d1f",
                   fontWeight: isActive ? 500 : 400,
                 }}
                 onMouseEnter={(e) => {
-                  if (!isActive) (e.currentTarget as HTMLElement).style.color = "#6366f1";
+                  if (!isActive) (e.currentTarget as HTMLElement).style.color = "#0066cc";
                 }}
                 onMouseLeave={(e) => {
                   if (!isActive) (e.currentTarget as HTMLElement).style.color = "#1d1d1f";

@@ -23,7 +23,7 @@ export default function Awards() {
             style={{
               fontSize: "0.6875rem",
               letterSpacing: "0.1em",
-              color: "#6366f1",
+              color: "#0066cc",
               fontWeight: 600,
               marginBottom: "0.6rem",
               textTransform: "uppercase",
@@ -72,7 +72,7 @@ export default function Awards() {
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(99,102,241,0.3)";
+                  "rgba(0,102,204,0.2)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.borderColor =
@@ -91,7 +91,7 @@ export default function Awards() {
                 >
                   {award.title}
                 </p>
-                <p style={{ fontSize: "0.8125rem", color: "#6366f1", marginBottom: "0.2rem", letterSpacing: "-0.005em" }}>
+                <p style={{ fontSize: "0.8125rem", color: "#0066cc", marginBottom: "0.2rem", letterSpacing: "-0.005em" }}>
                   {award.org}
                 </p>
                 <p

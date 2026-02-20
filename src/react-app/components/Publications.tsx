@@ -22,7 +22,7 @@ export default function Publications() {
             style={{
               fontSize: "0.6875rem",
               letterSpacing: "0.1em",
-              color: "#6366f1",
+              color: "#0066cc",
               fontWeight: 600,
               marginBottom: "0.6rem",
               textTransform: "uppercase",
@@ -65,8 +65,8 @@ export default function Publications() {
                 overflow: "hidden",
               }}
               whileHover={{
-                borderColor: "rgba(99,102,241,0.4)",
-                boxShadow: "0 0 30px rgba(99,102,241,0.07)",
+                borderColor: "rgba(0,102,204,0.28)",
+                boxShadow: "0 0 30px rgba(0,102,204,0.06)",
               }}
             >
               {/* Number badge */}
@@ -76,14 +76,14 @@ export default function Publications() {
                   width: 36,
                   height: 36,
                   borderRadius: "0.5rem",
-                  background: "rgba(99,102,241,0.12)",
-                  border: "1px solid rgba(99,102,241,0.2)",
+                  background: "rgba(0,102,204,0.09)",
+                  border: "1px solid rgba(0,102,204,0.15)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   fontSize: "0.85rem",
                   fontWeight: 700,
-                  color: "#6366f1",
+                  color: "#0066cc",
                   fontFamily: "monospace",
                 }}
               >
@@ -122,7 +122,7 @@ export default function Publications() {
                 <p
                   style={{
                     fontSize: "0.875rem",
-                    color: "#6366f1",
+                    color: "#0066cc",
                     fontStyle: "italic",
                     marginBottom: "0.875rem",
                     letterSpacing: "-0.005em",
