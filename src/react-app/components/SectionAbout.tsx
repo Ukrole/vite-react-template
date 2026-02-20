@@ -1,4 +1,5 @@
 import { profile, education } from "../data/resume";
+import ChatBot from "./ChatBot";
 
 const FACTS = [
   { label: "PhD Candidate", sub: "2026 – Present" },
@@ -51,6 +52,8 @@ export default function SectionAbout() {
           </div>
         ))}
       </div>
+
+      <ChatBot />
     </div>
   );
 }
