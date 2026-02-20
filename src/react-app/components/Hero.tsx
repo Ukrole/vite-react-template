@@ -1,383 +1,78 @@
-import { useEffect, useState } from "react";
-import { motion, type Variants } from "framer-motion";
-import { profile } from "../data/resume";
+import { profile, education } from "../data/resume";
 
-const TYPING_STRINGS = [
-  "PhD Researcher",
-  "AI Software Engineer",
-  "Federated Learning",
-  "Embodied Intelligence",
+const LINKS = [
+  { label: "Email", href: `mailto:${profile.email}`, value: profile.email },
+  { label: "GitHub", href: profile.github, value: "github.com/zikangwen" },
+  { label: "LinkedIn", href: profile.linkedin, value: "LinkedIn" },
+  { label: "Scholar", href: profile.googleScholar, value: "Google Scholar" },
 ];
 
-function useTypingEffect(strings: string[]) {
-  const [display, setDisplay] = useState("");
-  const [idx, setIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    const current = strings[idx % strings.length];
-    const delay = deleting ? 40 : charIdx === current.length ? 1800 : 70;
-
-    const timer = setTimeout(() => {
-      if (!deleting && charIdx < current.length) {
-        setDisplay(current.slice(0, charIdx + 1));
-        setCharIdx((c) => c + 1);
-      } else if (!deleting && charIdx === current.length) {
-        setDeleting(true);
-      } else if (deleting && charIdx > 0) {
-        setDisplay(current.slice(0, charIdx - 1));
-        setCharIdx((c) => c - 1);
-      } else {
-        setDeleting(false);
-        setIdx((i) => (i + 1) % strings.length);
-      }
-    }, delay);
-
-    return () => clearTimeout(timer);
-  }, [charIdx, deleting, idx, strings]);
-
-  return display;
-}
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" as const },
-  }),
-};
-
 export default function Hero() {
-  const typed = useTypingEffect(TYPING_STRINGS);
-
   return (
-    <section
-      id="hero"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        position: "relative",
-        overflow: "hidden",
-        paddingTop: "5rem",
-      }}
-    >
-      {/* Ambient blobs */}
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          top: "15%",
-          left: "10%",
-          width: 480,
-          height: 480,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(99,102,241,0.04) 0%, transparent 70%)",
-          filter: "blur(60px)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          bottom: "20%",
-          right: "5%",
-          width: 380,
-          height: 380,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(139,92,246,0.04) 0%, transparent 70%)",
-          filter: "blur(60px)",
-          pointerEvents: "none",
-        }}
-      />
+    <section style={{ paddingTop: "5.5rem", paddingBottom: "clamp(2.5rem, 5vw, 4rem)" }}>
+      <div className="page-wrap">
+        <div
+          className="hero-grid"
+          style={{ display: "flex", alignItems: "flex-start", gap: "3rem", justifyContent: "space-between" }}
+        >
+          {/* Left: bio block */}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <h1 style={{ fontSize: "clamp(1.75rem, 4vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.025em", color: "#111", lineHeight: 1.2, marginBottom: "0.4rem" }}>
+              {profile.name}
+            </h1>
+            <p style={{ fontSize: "0.9375rem", color: "#555", marginBottom: "0.25rem" }}>
+              PhD Researcher in Artificial Intelligence
+            </p>
+            <p style={{ fontSize: "0.875rem", color: "#888", marginBottom: "1.5rem" }}>
+              School of Computer Science · The University of Sydney
+            </p>
 
-        <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "clamp(5.5rem, 12vw, 9rem) clamp(1.25rem, 5vw, 2.5rem) clamp(4rem, 8vw, 7rem)", width: "100%" }}>
-        <div className="max-w-3xl">
-          {/* Badge */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0}
-            className="inline-flex items-center gap-2 mb-6"
-          >
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.3rem 1rem",
-                borderRadius: "9999px",
-                border: "1px solid rgba(0,102,204,0.25)",
-                background: "rgba(0,102,204,0.06)",
-                fontSize: "0.6875rem",
-                color: "#0066cc",
-                letterSpacing: "0.08em",
-                fontWeight: 600,
-              }}
-            >
-              <span
-                style={{
-                  width: 7,
-                  height: 7,
-                  borderRadius: "50%",
-                  background: "#0066cc",
-                  animation: "pulse 2s infinite",
-                  display: "inline-block",
-                }}
-              />
-              OPEN TO RESEARCH COLLABORATIONS
-            </span>
-          </motion.div>
+            <p style={{ fontSize: "0.9375rem", color: "#333", lineHeight: 1.72, maxWidth: "520px", marginBottom: "1.75rem" }}>
+              {profile.about}
+            </p>
 
-          {/* Name */}
-          <motion.h1
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={1}
-            style={{
-              fontSize: "clamp(3.25rem, 8.5vw, 5.75rem)",
-              fontWeight: 800,
-              lineHeight: 1.04,
-              letterSpacing: "-0.04em",
-              marginBottom: "1.125rem",
-              color: "#1d1d1f",
-              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
-            }}
-          >
-            {profile.name}
-          </motion.h1>
+            {/* Contact links */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem 1.25rem" }}>
+              {LINKS.map((l) => (
+                <a key={l.label} href={l.href} target={l.href.startsWith("mailto") ? undefined : "_blank"} rel="noopener noreferrer"
+                  className="ext-link"
+                  style={{ fontSize: "0.875rem", display: "flex", alignItems: "center", gap: "0.3rem" }}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
 
-          {/* Typing subtitle */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={2}
-            style={{
-              fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)",
-              fontWeight: 500,
-              marginBottom: "1.75rem",
-              color: "#6e6e73",
-              height: "2.25rem",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.4rem",
-              letterSpacing: "-0.01em",
-            }}
+            {/* Education summary */}
+            <div style={{ marginTop: "2rem", paddingTop: "1.5rem", borderTop: "1px solid #e8e8e8" }}>
+              {education.map((e, i) => (
+                <div key={i} style={{ display: "flex", gap: "0.75rem", marginBottom: i < education.length - 1 ? "0.85rem" : 0 }}>
+                  <div style={{ paddingTop: "0.2rem" }}>
+                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: i === 0 ? "#111" : "#ccc", marginTop: "0.35rem" }} />
+                  </div>
+                  <div>
+                    <p style={{ fontSize: "0.875rem", fontWeight: 600, color: "#111", lineHeight: 1.3 }}>{e.degree}</p>
+                    <p style={{ fontSize: "0.8125rem", color: "#555" }}>{e.institution} · {e.period}</p>
+                    <p style={{ fontSize: "0.8125rem", color: "#888" }}>{e.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: photo */}
+          <div
+            className="hero-photo"
+            style={{ flexShrink: 0, width: 168, height: 168, borderRadius: "50%", overflow: "hidden", border: "1px solid #e8e8e8", background: "#f5f5f5" }}
           >
-            <span className="gradient-text" style={{ minWidth: 0 }}>
-              {typed}
-            </span>
-            <span
-              style={{
-                width: 2,
-                height: "1.2em",
-                background: "#0066cc",
-                display: "inline-block",
-                animation: "blink 1s step-end infinite",
-              }}
+            <img
+              src="/profile.jpg"
+              alt={profile.name}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
             />
-          </motion.div>
-
-          {/* Description */}
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={3}
-            style={{
-              fontSize: "1.0625rem",
-              lineHeight: 1.78,
-              color: "#6e6e73",
-              maxWidth: "580px",
-              marginBottom: "2.75rem",
-              letterSpacing: "-0.008em",
-            }}
-          >
-            Building statistically efficient and system-aware AI for distributed
-            environments — from federated learning to embodied intelligence and
-            wireless digital twins.
-          </motion.p>
-
-          {/* Location */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={3.5}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.4rem",
-              fontSize: "0.875rem",
-              color: "#6e6e73",
-              marginBottom: "2.75rem",
-              letterSpacing: "-0.005em",
-            }}
-          >
-            <span>📍</span>
-            <span>{profile.location}</span>
-            <span style={{ margin: "0 0.4rem", opacity: 0.4 }}>·</span>
-            <span>The University of Sydney</span>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={4}
-            style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
-          >
-            <a
-              href="#publications"
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .querySelector("#publications")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-              style={{
-                padding: "0.8125rem 1.875rem",
-                borderRadius: "0.625rem",
-                background: "linear-gradient(135deg, #0066cc, #0077ed)",
-                color: "#fff",
-                fontWeight: 600,
-                fontSize: "0.9375rem",
-                letterSpacing: "-0.008em",
-                cursor: "pointer",
-                transition: "opacity 0.2s, transform 0.2s",
-                display: "inline-block",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.opacity = "0.88";
-                (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.opacity = "1";
-                (e.currentTarget as HTMLElement).style.transform = "none";
-              }}
-            >
-              View Publications
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .querySelector("#contact")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-              style={{
-                padding: "0.8125rem 1.875rem",
-                borderRadius: "0.625rem",
-                background: "transparent",
-                color: "#6e6e73",
-                fontWeight: 500,
-                fontSize: "0.9375rem",
-                letterSpacing: "-0.008em",
-                cursor: "pointer",
-                border: "1px solid rgba(0,0,0,0.12)",
-                transition: "color 0.2s, border-color 0.2s, transform 0.2s",
-                display: "inline-block",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#0066cc";
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(0,102,204,0.35)";
-                (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#1d1d1f";
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(0,0,0,0.12)";
-                (e.currentTarget as HTMLElement).style.transform = "none";
-              }}
-            >
-              Get In Touch
-            </a>
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                padding: "0.75rem 1rem",
-                borderRadius: "0.5rem",
-                background: "transparent",
-                color: "#6e6e73",
-                fontWeight: 500,
-                fontSize: "0.92rem",
-                cursor: "pointer",
-                border: "1px solid rgba(0,0,0,0.12)",
-                transition: "color 0.2s, border-color 0.2s",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.4rem",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#0066cc";
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(0,102,204,0.28)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#1d1d1f";
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(0,0,0,0.12)";
-              }}
-            >
-              GitHub ↗
-            </a>
-          </motion.div>
+          </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        style={{
-          position: "absolute",
-          bottom: "2.5rem",
-          left: "50%",
-          transform: "translateX(-50%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "0.5rem",
-        }}
-      >
-        <span style={{ fontSize: "0.72rem", color: "#86868b", letterSpacing: "0.1em" }}>
-          SCROLL
-        </span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          style={{
-            width: 1,
-            height: 40,
-            background: "linear-gradient(to bottom, rgba(0,0,0,0.25), transparent)",
-          }}
-        />
-      </motion.div>
-
-      <style>{`
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
-        }
-      `}</style>
     </section>
   );
 }

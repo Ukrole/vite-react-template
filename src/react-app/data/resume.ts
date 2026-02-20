@@ -7,6 +7,8 @@ export const profile = {
   github: "https://github.com/zikangwen",
   linkedin: "https://linkedin.com/in/zikangwen",
   googleScholar: "https://scholar.google.com",
+  instagram: "https://www.instagram.com/fff_zackery/",
+  wechat: "W1685870923",
   about: `I am a researcher and AI software engineer working at the intersection of embodied intelligence, distributed systems, wireless digital twins, and large-scale AI systems. My research focuses on building statistically efficient and system-aware AI for distributed environments, including federated learning, edge AI, and real-world cyber-physical systems. Beyond research, I design and develop AI-powered software systems, including AI agents, cloud-native applications, and intelligent web platforms.`,
 };
 
@@ -28,12 +30,12 @@ export const education = [
 ];
 
 export const researchInterests = [
-  { label: "Federated Learning", icon: "🔗", detail: "Distributed Optimization" },
   { label: "Embodied Intelligence", icon: "🤖", detail: "AI Agents" },
+  { label: "Autonomous AI Agents", icon: "🧠", detail: "LLM-driven Planning" },
+  { label: "Federated Learning", icon: "🔗", detail: "Distributed Optimization" },
   { label: "Wireless Digital Twins", icon: "📡", detail: "Cyber-Physical Systems" },
   { label: "Edge & Cloud AI", icon: "☁️", detail: "Infrastructure" },
   { label: "System-Efficient ML", icon: "⚡", detail: "Resource-Aware Learning" },
-  { label: "Distributed AI", icon: "🌐", detail: "Resource-Constrained Systems" },
 ];
 
 export const publications = [

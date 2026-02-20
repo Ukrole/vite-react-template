@@ -1,111 +1,29 @@
-import { motion } from "framer-motion";
 import { awards } from "../data/resume";
 
 export default function Awards() {
   return (
-    <section
-      id="awards"
-      style={{
-        padding: "clamp(4rem, 8vw, 8rem) 0",
-        background: "#f5f5f7",
-        position: "relative",
-      }}
-    >
-        <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "0 clamp(1.25rem, 5vw, 2.5rem)" }}>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}
-        >
-          <p
-            style={{
-              fontSize: "0.6875rem",
-              letterSpacing: "0.1em",
-              color: "#0066cc",
-              fontWeight: 600,
-              marginBottom: "0.6rem",
-              textTransform: "uppercase",
-            }}
-          >
-            Recognition
-          </p>
-          <h2
-            style={{
-              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
-              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
-              fontWeight: 700,
-              color: "#1d1d1f",
-              letterSpacing: "-0.032em",
-              lineHeight: 1.08,
-            }}
-          >
+    <section id="awards" className="section">
+      <div className="page-wrap">
+        <div>
+          <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#888", marginBottom: "1.5rem" }}>
             Honors & Awards
-          </h2>
-        </motion.div>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-            gap: "1rem",
-          }}
-        >
-          {awards.map((award, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.96, y: 16 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06, duration: 0.4 }}
-              whileHover={{ y: -3 }}
-              style={{
-                padding: "1.35rem 1.5rem",
-                borderRadius: "0.75rem",
-                border: "1px solid rgba(0,0,0,0.08)",
-                background: "#ffffff",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
-                display: "flex",
-                alignItems: "start",
-                transition: "border-color 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(0,102,204,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  "rgba(0,0,0,0.08)";
-              }}
-            >
-              <div>
-                <p
-                  style={{
-                    fontSize: "0.88rem",
-                    fontWeight: 600,
-                    color: "#1d1d1f",
-                    lineHeight: 1.4,
-                    marginBottom: "0.25rem",
-                  }}
-                >
-                  {award.title}
-                </p>
-                <p style={{ fontSize: "0.8125rem", color: "#0066cc", marginBottom: "0.2rem", letterSpacing: "-0.005em" }}>
-                  {award.org}
-                </p>
-                <p
-                  style={{
-                  fontSize: "0.8125rem",
-                  color: "#6e6e73",
-                  letterSpacing: "0.02em",
-                  }}
-                >
-                  {award.year}
-                </p>
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+            {awards.map((a, i) => (
+              <div
+                key={i}
+                style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.25rem",
+                  paddingTop: "0.75rem", paddingBottom: "0.75rem",
+                  borderBottom: i < awards.length - 1 ? "1px solid #f0f0f0" : "none" }}
+              >
+                <div>
+                  <span style={{ fontSize: "0.875rem", fontWeight: 500, color: "#111" }}>{a.title}</span>
+                  <span style={{ fontSize: "0.8rem", color: "#888", marginLeft: "0.6rem" }}>{a.org}</span>
+                </div>
+                <span style={{ fontSize: "0.8rem", color: "#aaa", flexShrink: 0 }}>{a.year}</span>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

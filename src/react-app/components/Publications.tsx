@@ -1,171 +1,45 @@
-import { motion } from "framer-motion";
 import { publications } from "../data/resume";
 
 export default function Publications() {
   return (
-    <section id="publications" style={{ padding: "clamp(4rem, 8vw, 8rem) 0", position: "relative" }}>
-      <div
-        style={{
-          maxWidth: "1120px",
-          margin: "0 auto",
-          padding: "0 clamp(1.25rem, 5vw, 2.5rem)",
-        }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}
-        >
-          <p
-            style={{
-              fontSize: "0.6875rem",
-              letterSpacing: "0.1em",
-              color: "#0066cc",
-              fontWeight: 600,
-              marginBottom: "0.6rem",
-              textTransform: "uppercase",
-            }}
-          >
-            Research Output
-          </p>
-          <h2
-            style={{
-              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif",
-              fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
-              fontWeight: 700,
-              color: "#1d1d1f",
-              letterSpacing: "-0.032em",
-              lineHeight: 1.08,
-            }}
-          >
+    <section id="publications" className="section">
+      <div className="page-wrap">
+        <div>
+          <p style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#888", marginBottom: "1.5rem" }}>
             Publications
-          </h2>
-        </motion.div>
+          </p>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-          {publications.map((pub, i) => (
-            <motion.div
-              key={pub.id}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.55 }}
-              style={{
-                padding: "1.75rem 2rem",
-                borderRadius: "0.875rem",
-                border: "1px solid rgba(0,0,0,0.08)",
-                background: "#ffffff",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
-                display: "flex",
-                gap: "1.5rem",
-                transition: "border-color 0.25s, box-shadow 0.25s",
-                position: "relative",
-                overflow: "hidden",
-              }}
-              whileHover={{
-                borderColor: "rgba(0,102,204,0.28)",
-                boxShadow: "0 0 30px rgba(0,102,204,0.06)",
-              }}
-            >
-              {/* Number badge */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+            {publications.map((pub) => (
               <div
-                style={{
-                  flexShrink: 0,
-                  width: 36,
-                  height: 36,
-                  borderRadius: "0.5rem",
-                  background: "rgba(0,102,204,0.09)",
-                  border: "1px solid rgba(0,102,204,0.15)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "0.85rem",
-                  fontWeight: 700,
-                  color: "#0066cc",
-                  fontFamily: "monospace",
-                }}
+                key={pub.id}
+                style={{ display: "flex", gap: "1.25rem" }}
               >
-                [{pub.id}]
-              </div>
-
-              <div style={{ flex: 1, minWidth: 0 }}>
-                {/* Title */}
-                <p
-                  style={{
-                    fontSize: "1.0625rem",
-                    fontWeight: 600,
-                    color: "#1d1d1f",
-                    lineHeight: 1.42,
-                    marginBottom: "0.55rem",
-                    letterSpacing: "-0.015em",
-                  }}
-                >
-                  {pub.title}
-                </p>
-
-                {/* Authors */}
-                <p
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "#6e6e73",
-                    marginBottom: "0.45rem",
-                    lineHeight: 1.55,
-                    letterSpacing: "-0.005em",
-                  }}
-                >
-                  {pub.authors}
-                </p>
-
-                {/* Venue */}
-                <p
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "#0066cc",
-                    fontStyle: "italic",
-                    marginBottom: "0.875rem",
-                    letterSpacing: "-0.005em",
-                  }}
-                >
-                  {pub.venue}
-                  {pub.pages ? `, ${pub.pages}` : ""} · {pub.year}
-                </p>
-
-                {/* Tags */}
-                <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                  <span
-                    style={{
-                      padding: "0.2rem 0.65rem",
-                      borderRadius: "9999px",
-                      background: "rgba(56,189,248,0.08)",
-                      border: "1px solid rgba(56,189,248,0.2)",
-                      fontSize: "0.72rem",
-                      color: "#0284c7",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {pub.type}
-                  </span>
-                  {pub.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      style={{
-                        padding: "0.2rem 0.65rem",
-                        borderRadius: "9999px",
-                        background: "rgba(0,0,0,0.1)",
-                        border: "1px solid rgba(0,0,0,0.1)",
-                        fontSize: "0.72rem",
-                        color: "#6e6e73",
-                      }}
-                    >
-                      {tag}
+                <span style={{ fontSize: "0.8rem", color: "#aaa", minWidth: "1.25rem", paddingTop: "0.15rem", fontVariantNumeric: "tabular-nums" }}>
+                  [{pub.id}]
+                </span>
+                <div>
+                  <p style={{ fontSize: "0.9rem", lineHeight: 1.6, color: "#333", marginBottom: "0.3rem" }}>
+                    {/* Highlight author Z. Wen */}
+                    {pub.authors.split(/(Z\. Wen)/).map((part, j) =>
+                      part === "Z. Wen"
+                        ? <strong key={j} style={{ color: "#111" }}>Z. Wen</strong>
+                        : <span key={j}>{part}</span>
+                    )},&nbsp;
+                    "<span style={{ fontWeight: 500, color: "#111" }}>{pub.title}</span>,"&nbsp;
+                    <em style={{ color: "#555" }}>{pub.venue}</em>,&nbsp;
+                    {pub.year}{pub.pages ? `, ${pub.pages}` : ""}.
+                  </p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem", marginTop: "0.4rem" }}>
+                    <span style={{ fontSize: "0.7rem", fontWeight: 500, color: "#0066aa", background: "#f0f5ff", border: "1px solid #dce8fa", borderRadius: "3px", padding: "0.1rem 0.4rem" }}>
+                      {pub.type}
                     </span>
-                  ))}
+                    {pub.tags.map((t) => <span key={t} className="tag">{t}</span>)}
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
