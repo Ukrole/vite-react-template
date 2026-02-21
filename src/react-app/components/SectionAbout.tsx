@@ -1,4 +1,4 @@
-import { profile, education } from "../data/resume";
+import { profile, education, researchInterests } from "../data/resume";
 import ChatBot from "./ChatBot";
 
 export default function SectionAbout() {
@@ -10,6 +10,12 @@ export default function SectionAbout() {
 
       <div className="about-text">
         <p>{profile.about}</p>
+      </div>
+
+      <div className="tags" style={{ marginTop: "1rem" }}>
+        {researchInterests.map((r) => (
+          <span key={r.label} className="tag">{r.label}</span>
+        ))}
       </div>
 
       <div className="edu-section">
