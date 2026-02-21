@@ -32,10 +32,8 @@ export const education = [
 export const researchInterests = [
   { label: "Embodied Intelligence", icon: "🤖", detail: "AI Agents" },
   { label: "Autonomous AI Agents", icon: "🧠", detail: "LLM-driven Planning" },
-  { label: "Federated Learning", icon: "🔗", detail: "Distributed Optimization" },
   { label: "Wireless Digital Twins", icon: "📡", detail: "Cyber-Physical Systems" },
   { label: "Edge & Cloud AI", icon: "☁️", detail: "Infrastructure" },
-  { label: "System-Efficient ML", icon: "⚡", detail: "Resource-Aware Learning" },
 ];
 
 export const publications = [

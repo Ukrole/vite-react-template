@@ -3,8 +3,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-  /* ~14px at 1100px · ~17px at 1440px · ~21px at 1920px */
-  font-size: clamp(13px, 1.05vw + 1.5px, 21px);
+  /* ~16px at 1100px · ~19px at 1440px · ~23px at 1920px */
+  font-size: clamp(16px, 1.25vw + 2.5px, 23px);
 }
 
 html, body {
@@ -16,7 +16,7 @@ html, body {
 }
 
 body {
-  background: #f3f4f6;
+  background: #fff;
 }
 
 #root {
@@ -55,43 +55,41 @@ a { text-decoration: none; color: inherit; }
 }
 
 .nav-brand {
-  font-size: 1.14rem;
-  font-weight: 700;
-  color: #111;
-  letter-spacing: -0.01em;
   background: none;
   border: none;
   cursor: pointer;
-  font-family: inherit;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.nav-signature {
+  height: 2.6rem;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .nav-pills {
   display: flex;
-  gap: 2px;
-  background: #f3f4f6;
-  border-radius: 9px;
-  padding: 3px;
+  gap: 0;
 }
 
 .nav-pill {
   font-size: 0.93rem;
-  padding: 0.28rem 1rem;
-  border-radius: 7px;
+  padding: 0.28rem 0.85rem;
   border: none;
   cursor: pointer;
-  color: #6b7280;
+  color: #9ca3af;
   background: transparent;
   font-family: inherit;
   font-weight: 400;
-  transition: color 0.15s, background 0.15s;
+  transition: color 0.15s;
   white-space: nowrap;
 }
 .nav-pill:hover { color: #374151; }
 .nav-pill.active {
-  background: #fff;
   color: #111;
-  font-weight: 500;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  font-weight: 600;
 }
 
 /* ─── Body (sidebar + main) ─────────────────────────────────────────────── */
@@ -103,9 +101,8 @@ a { text-decoration: none; color: inherit; }
 
 /* ─── Sidebar ───────────────────────────────────────────────────────────── */
 .sidebar {
-  width: clamp(240px, 27vw, 380px);
+  width: clamp(260px, 33vw, 480px);
   flex-shrink: 0;
-  border-right: 1px solid #e5e7eb;
   overflow-y: auto;
   padding: 1.7rem 1.5rem;
   display: flex;
@@ -139,7 +136,7 @@ a { text-decoration: none; color: inherit; }
 .social-row {
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 .social-icon {
@@ -162,7 +159,8 @@ a { text-decoration: none; color: inherit; }
 .social-icon-copied { color: #22c55e !important; border-color: #22c55e !important; }
 
 .interests-box {
-  background: #eff6ff;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 9px;
   padding: 0.85rem 1rem;
 }
@@ -303,6 +301,7 @@ a { text-decoration: none; color: inherit; }
 }
 .tags { display: flex; flex-wrap: wrap; gap: 0.28rem; margin-top: 0.57rem; }
 .tag-blue { color: #1d4ed8 !important; background: #eff6ff !important; border-color: #bfdbfe !important; }
+.tag-orange { color: #92400e !important; background: #fffbeb !important; border-color: #fde68a !important; }
 
 /* ─── Section fade-in animation ────────────────────────────────────────── */
 @keyframes sectionFadeIn {
@@ -324,18 +323,16 @@ a { text-decoration: none; color: inherit; }
 /* ─── Sidebar enhancements ──────────────────────────────────────────────── */
 .sidebar-photo-wrap {
   position: relative;
-  border-radius: 13px;
-  padding: 3px;
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #fbbf24 100%);
+  border-radius: 12px;
+  overflow: hidden;
 }
 .sidebar-photo {
   width: 100%;
   aspect-ratio: 4 / 5;
-  border-radius: 10px;
+  border-radius: 12px;
   object-fit: cover;
   object-position: center center;
   display: block;
-  border: 3px solid #fff;
 }
 
 .sidebar-info { text-align: center; }
@@ -374,7 +371,7 @@ a { text-decoration: none; color: inherit; }
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #93c5fd;
+  background: #d1d5db;
   flex-shrink: 0;
 }
 
@@ -433,7 +430,7 @@ a { text-decoration: none; color: inherit; }
   font-size: 0.65rem;
   font-weight: 800;
   color: #d97706;
-  background: #fef3c7;
+  background: #fffbeb;
   border: 1px solid #fde68a;
   border-radius: 5px;
   padding: 0.2rem 0.35rem;
@@ -445,22 +442,20 @@ a { text-decoration: none; color: inherit; }
 /* ─── Chatbot ────────────────────────────────────────────────────────────── */
 .chatbot-section {
   margin-top: 1.6rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  overflow: hidden;
   background: #fff;
 }
 .chatbot-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0;
   cursor: pointer;
   user-select: none;
-  background: #fafafa;
-  transition: background 0.15s;
+  background: transparent;
+  border-top: 1px solid #e5e7eb;
+  transition: opacity 0.15s;
 }
-.chatbot-header:hover { background: #f3f4f6; }
+.chatbot-header:hover { opacity: 0.75; }
 .chatbot-header-left { display: flex; align-items: center; gap: 0.5rem; }
 .chatbot-icon { color: #d97706; display: flex; align-items: center; }
 .chatbot-title { font-size: 0.82rem; font-weight: 600; color: #111; }
@@ -468,7 +463,7 @@ a { text-decoration: none; color: inherit; }
   font-size: 0.62rem;
   font-weight: 700;
   color: #d97706;
-  background: #fef3c7;
+  background: #fffbeb;
   border: 1px solid #fde68a;
   border-radius: 4px;
   padding: 1px 5px;
@@ -481,7 +476,7 @@ a { text-decoration: none; color: inherit; }
 .chatbot-messages {
   max-height: 15rem;
   overflow-y: auto;
-  padding: 0.9rem 1rem;
+  padding: 0.9rem 0;
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
@@ -521,7 +516,7 @@ a { text-decoration: none; color: inherit; }
   40%            { opacity: 1;   transform: scale(1); }
 }
 
-.chat-suggestions { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0 1rem 0.75rem; }
+.chat-suggestions { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0 0 0.75rem; }
 .chat-suggestion {
   font-size: 0.73rem;
   color: #6b7280;
@@ -535,10 +530,17 @@ a { text-decoration: none; color: inherit; }
 }
 .chat-suggestion:hover { color: #d97706; border-color: #d97706; }
 
-.chatbot-input-row { display: flex; border-top: 1px solid #e5e7eb; }
+.chatbot-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f3f4f6;
+  border-radius: 99px;
+  padding: 0.25rem 0.25rem 0.25rem 0.9rem;
+}
 .chatbot-input {
   flex: 1;
-  padding: 0.65rem 0.9rem;
+  padding: 0.4rem 0;
   font-size: 0.8rem;
   border: none;
   outline: none;
@@ -548,10 +550,11 @@ a { text-decoration: none; color: inherit; }
 }
 .chatbot-input::placeholder { color: #9ca3af; }
 .chatbot-send {
-  padding: 0 1rem;
+  padding: 0.4rem 0.75rem;
   background: #d97706;
   color: #fff;
   border: none;
+  border-radius: 99px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -560,7 +563,7 @@ a { text-decoration: none; color: inherit; }
   flex-shrink: 0;
 }
 .chatbot-send:hover:not(:disabled) { background: #b45309; }
-.chatbot-send:disabled { background: #e5e7eb; color: #9ca3af; cursor: default; }
+.chatbot-send:disabled { background: transparent; color: #9ca3af; cursor: default; }
 
 /* ═══════════════════════════════════════════════════════════════════════════
    MOBILE PORTRAIT  (≤ 640px)
@@ -609,21 +612,22 @@ a { text-decoration: none; color: inherit; }
     background: transparent;
     border-radius: 0;
     padding: 0 0 0.5rem;
-    gap: 4px;
+    gap: 0;
     border-top: 1px solid #f3f4f6;
     padding-top: 0.35rem;
   }
   .nav-pills::-webkit-scrollbar { display: none; }
   .nav-pill {
     font-size: 0.8rem;
-    padding: 0.25rem 0.75rem;
+    padding: 0.25rem 0.65rem;
     white-space: nowrap;
-    border-radius: 20px;
-    background: #f3f4f6;
+    background: transparent;
+    border-radius: 0;
   }
   .nav-pill.active {
-    background: #111;
-    color: #fff;
+    background: transparent;
+    color: #111;
+    font-weight: 600;
     box-shadow: none;
   }
 

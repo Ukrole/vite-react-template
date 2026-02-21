@@ -14,7 +14,7 @@ export default function Navbar({ active, setActive }: Props) {
   return (
     <nav className="card-nav">
       <button className="nav-brand" onClick={() => setActive("about")}>
-        {profile.name}
+        <img src="/signature.png" alt={profile.name} className="nav-signature" />
       </button>
       <div className="nav-pills">
         {TABS.map((t) => (
