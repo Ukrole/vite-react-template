@@ -7,16 +7,6 @@ type SocialItem =
 
 const SOCIALS: SocialItem[] = [
   {
-    title: "Email",
-    href: `mailto:${profile.email}`,
-    svg: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="4" width="20" height="16" rx="2"/>
-        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-      </svg>
-    ),
-  },
-  {
     title: "GitHub",
     href: profile.github,
     svg: (
@@ -75,11 +65,22 @@ export default function Sidebar() {
       <div className="sidebar-info">
         <p className="sidebar-name">{profile.name}</p>
         <p className="sidebar-title">PhD Researcher</p>
-        <p className="sidebar-institution">The University of Sydney</p>
-        <div className="sidebar-status">
-          <span className="status-dot" />
-          <span className="status-text">Open to collaboration</span>
-        </div>
+      </div>
+
+      <a href={`mailto:${profile.email}`} className="sidebar-email">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        {profile.email}
+      </a>
+
+      <div className="sidebar-email">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        Sydney, Australia
       </div>
 
       <div className="social-row">

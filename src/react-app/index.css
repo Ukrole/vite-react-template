@@ -158,6 +158,18 @@ a { text-decoration: none; color: inherit; }
 .social-icon:hover { color: #d97706; border-color: #d97706; }
 .social-icon-copied { color: #22c55e !important; border-color: #22c55e !important; }
 
+.sidebar-email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.sidebar-email:hover { color: #d97706; }
+
 .interests-box {
   background: #f9fafb;
   border: 1px solid #e5e7eb;
