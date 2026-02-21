@@ -133,6 +133,24 @@ a { text-decoration: none; color: inherit; }
   margin-top: 0.1rem;
 }
 
+.sidebar-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.sidebar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 99px;
+  padding: 0.2rem 0.65rem;
+}
+
 .social-row {
   display: flex;
   justify-content: center;

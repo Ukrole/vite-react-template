@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { profile, researchInterests } from "../data/resume";
+import { profile } from "../data/resume";
 
 type SocialItem =
   | { title: string; href: string; copy?: never; svg: React.ReactNode }
@@ -83,6 +83,27 @@ export default function Sidebar() {
         Sydney, Australia
       </div>
 
+      <div className="sidebar-badges">
+        <span className="sidebar-badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+          USyd Uni Medal
+        </span>
+        <span className="sidebar-badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+          WAM 95
+        </span>
+        <span className="sidebar-badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+          RTP Scholarship
+        </span>
+      </div>
+
       <div className="social-row">
         {SOCIALS.map((s) =>
           s.copy ? (
@@ -105,18 +126,6 @@ export default function Sidebar() {
             </a>
           )
         )}
-      </div>
-
-      <div className="interests-box">
-        <h4>Research Interests</h4>
-        <ul>
-          {researchInterests.map((r) => (
-            <li key={r.label}>
-              <span className="interest-dot" />
-              {r.label}
-            </li>
-          ))}
-        </ul>
       </div>
     </aside>
   );
