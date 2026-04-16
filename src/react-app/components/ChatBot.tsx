@@ -41,10 +41,7 @@ export default function ChatBot() {
       const newSessionId = crypto.randomUUID();
       setSessionId(newSessionId);
       setMode("feifei");
-      setMessages([{
-        role: "assistant",
-        content: "嗨～我在呢。有什么想说的，慢慢说。",
-      }]);
+      setMessages([]);
       return;
     }
 
