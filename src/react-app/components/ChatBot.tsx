@@ -73,7 +73,7 @@ export default function ChatBot() {
 
   const placeholder = mode === "feifei" ? "说吧，我在听…" : "Ask a question…";
   const welcomeText = mode === "feifei"
-    ? "嗨～我在呢。有什么想说的，慢慢说。"
+    ? "宝宝我在呢~有什么想说的，慢慢说。"
     : "Hi! I'm Zikang's AI assistant. Ask me anything about his research, projects, or background.";
 
   return (
