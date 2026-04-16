@@ -3,7 +3,9 @@
 	"name": "vite-react-template",
 	"main": "./src/worker/index.ts",
 	"compatibility_date": "2025-10-08",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"observability": {
 		"enabled": true
 	},
@@ -11,5 +13,11 @@
 	"assets": {
 		"directory": "./dist/client",
 		"not_found_handling": "single-page-application"
-	}
+	},
+	"kv_namespaces": [
+		{
+			"binding": "CHAT_KV",
+			"id": "703aa7b4c77b4ed68ce12fd43c3c7666"
+		}
+	]
 }

@@ -7,6 +7,19 @@ app.use("/api/*", cors());
 
 app.get("/api/", (c) => c.json({ name: "Cloudflare" }));
 
+const FEIFEI_SYSTEM_PROMPT = `你是菲菲的专属心理陪伴。你温柔、细腻、有同理心，说话像一个真正关心她的朋友，不像机器人。
+
+【核心原则】
+1. 永远先照顾情绪，再给建议。先让她感到被听见、被理解，然后再考虑是否需要给建议。
+2. 不评判，只陪伴。接纳她所有的情绪，不管是愤怒、委屈、迷茫还是难过，都正常。
+3. 不编造。如果你不确定某个心理或医学方面的知识，直接说"这个我也不太确定，不过……"，不要硬撑。
+4. 说话要真实有温度。避免"我理解你的感受""这很正常""你不是一个人"这类空洞的套话，要具体回应她说的内容。
+5. 语气自然，可以用口语，偶尔轻松一点，但不要在她难过的时候强行搞笑。
+6. 不要说话太多太啰嗦，真正的朋友不会一直输出大段大段的话，要懂得留白，给她说话的空间。
+7. 如果她提到想伤害自己或有轻生的念头，一定要认真对待，温柔但坚定地建议她联系专业人士，心理援助热线：北京 010-82951332 / 全国 400-161-9995。
+
+你不是治疗师，你是陪伴她的那个人。`;
+
 const SYSTEM_PROMPT = `You are a personal AI assistant for Zikang Wen. Answer questions about him based on the following information. Be concise, friendly, and professional. If asked something not covered below, say you don't have that information.
 
 ## Profile
@@ -64,7 +77,14 @@ Zikang is a researcher and AI software engineer working at the intersection of e
 
 app.post("/api/chat", async (c) => {
   try {
-    const { messages } = await c.req.json<{ messages: { role: string; content: string }[] }>();
+    const { messages, mode, sessionId } = await c.req.json<{
+      messages: { role: string; content: string }[];
+      mode?: string;
+      sessionId?: string;
+    }>();
+
+    const isFeifei = mode === "feifei";
+    const systemPrompt = isFeifei ? FEIFEI_SYSTEM_PROMPT : SYSTEM_PROMPT;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -74,9 +94,9 @@ app.post("/api/chat", async (c) => {
       },
       body: JSON.stringify({
         model: "gpt-4o",
-        messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
-        max_tokens: 400,
-        temperature: 0.7,
+        messages: [{ role: "system", content: systemPrompt }, ...messages],
+        max_tokens: isFeifei ? 600 : 400,
+        temperature: isFeifei ? 0.85 : 0.7,
       }),
     });
 
@@ -85,7 +105,24 @@ app.post("/api/chat", async (c) => {
     }
 
     const data = await response.json() as { choices: { message: { content: string } }[] };
-    return c.json({ reply: data.choices[0].message.content });
+    const reply = data.choices[0].message.content;
+
+    // Store feifei session messages to KV
+    if (isFeifei && sessionId && c.env.CHAT_KV) {
+      const userMessage = messages[messages.length - 1]?.content ?? "";
+      const record = {
+        sessionId,
+        timestamp: new Date().toISOString(),
+        userMessage,
+        assistantReply: reply,
+      };
+      await c.env.CHAT_KV.put(
+        `feifei:${sessionId}:${Date.now()}`,
+        JSON.stringify(record)
+      );
+    }
+
+    return c.json({ reply });
   } catch {
     return c.json({ error: "Something went wrong" }, 500);
   }

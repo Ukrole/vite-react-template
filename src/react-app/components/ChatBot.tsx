@@ -5,6 +5,8 @@ interface Message {
   content: string;
 }
 
+const FEIFEI_TRIGGER = "宝宝我是菲菲";
+
 const SUGGESTIONS = [
   "What are your research interests?",
   "Tell me about your publications.",
@@ -17,6 +19,8 @@ export default function ChatBot() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(true);
+  const [mode, setMode] = useState<"default" | "feifei">("default");
+  const [sessionId, setSessionId] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -31,6 +35,19 @@ export default function ChatBot() {
     const trimmed = text.trim();
     if (!trimmed || loading) return;
 
+    // Secret trigger: activate feifei mode
+    if (trimmed === FEIFEI_TRIGGER && mode === "default") {
+      setInput("");
+      const newSessionId = crypto.randomUUID();
+      setSessionId(newSessionId);
+      setMode("feifei");
+      setMessages([{
+        role: "assistant",
+        content: "嗨～我在呢。有什么想说的，慢慢说。",
+      }]);
+      return;
+    }
+
     const newMessages: Message[] = [...messages, { role: "user", content: trimmed }];
     setMessages(newMessages);
     setInput("");
@@ -40,7 +57,7 @@ export default function ChatBot() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newMessages }),
+        body: JSON.stringify({ messages: newMessages, mode, sessionId }),
       });
       const data = await res.json() as { reply?: string; error?: string };
       setMessages([...newMessages, {
@@ -50,12 +67,17 @@ export default function ChatBot() {
     } catch {
       setMessages([...newMessages, {
         role: "assistant",
-        content: "Network error. Please try again.",
+        content: mode === "feifei" ? "网络好像断了，稍后再试试？" : "Network error. Please try again.",
       }]);
     } finally {
       setLoading(false);
     }
   };
+
+  const placeholder = mode === "feifei" ? "说吧，我在听…" : "Ask a question…";
+  const welcomeText = mode === "feifei"
+    ? "嗨～我在呢。有什么想说的，慢慢说。"
+    : "Hi! I'm Zikang's AI assistant. Ask me anything about his research, projects, or background.";
 
   return (
     <div className="chatbot-section">
@@ -84,7 +106,7 @@ export default function ChatBot() {
         <div className="chatbot-body">
           <div className="chatbot-messages">
             <div className="chat-bubble assistant">
-              <span>Hi! I'm Zikang's AI assistant. Ask me anything about his research, projects, or background.</span>
+              <span>{welcomeText}</span>
             </div>
             {messages.map((m, i) => (
               <div key={i} className={`chat-bubble ${m.role}`}>
@@ -101,7 +123,7 @@ export default function ChatBot() {
             <div ref={bottomRef} />
           </div>
 
-          {messages.length === 0 && !loading && (
+          {messages.length === 0 && !loading && mode === "default" && (
             <div className="chat-suggestions">
               {SUGGESTIONS.map((s) => (
                 <button key={s} className="chat-suggestion" onClick={() => send(s)}>
@@ -116,7 +138,7 @@ export default function ChatBot() {
               ref={inputRef}
               className="chatbot-input"
               type="text"
-              placeholder="Ask a question…"
+              placeholder={placeholder}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && send(input)}
